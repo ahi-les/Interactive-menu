@@ -1,0 +1,19 @@
+<h2><%= t('.title') %></h2>
+
+<%= link_to t('.new_order'),new_order_path, class: ' m-2 btn btn-primary' %>
+<%== pagy_bootstrap_nav @pagy %>
+  <% @orders.each do |order|%>
+  <article class="card">
+    <div class="card-body p-2">
+    	<div class="row text-center align-items-center">
+        <span class="col-auto fs-5"><%=t('.daily menu order from')%> </span>
+      	<h4 class="col-auto mb-0"><%= order.day_menu.date%></h4>
+        <span class="col-auto fs-5"><%=t('.order creation date')%></span>
+        <span class="col-auto mb-0"><%= order.created_at.strftime("%d %b. %Y") %></span>
+      	<%= link_to t('.more_details'),order_path(order), class: ' m-2 col-auto btn btn-success'%>
+      	<%= link_to t('.destroy_order'),order_path(order),data:{method: :delete,confirm:t('.are you sure?')}, class: 'col-auto m-2 btn btn-danger' %>
+      </div>
+    </div>
+  </article>
+<%end%>
+<%== pagy_bootstrap_nav @pagy %>

@@ -1,0 +1,16 @@
+<h2><%= t('.title') %></h2>
+
+<%= link_to t('.new_day_menu'),new_day_menu_path, class: ' m-2 btn btn-primary', :target => '_self' %>
+<%== pagy_bootstrap_nav @pagy %>
+  <% @day_menus.each do |day_menu|%>
+  <article class="card">
+    <div class="card-body p-2">
+    	<div class="row text-center">
+      	<h4 class="col-2 mb-0 pt-2"><%= day_menu.date%></h4>
+      	<%= link_to t('.more_details'),day_menu_path(day_menu), class: ' m-2 col-auto btn btn-success'%>
+      	<%= link_to t('.destroy_day_menu'),day_menu_path(day_menu),data:{method: :delete,confirm:t('.are you sure?')}, class: 'col-auto m-2 btn btn-danger' %>
+      </div>
+    </div>
+  </article>
+<%end%>
+<%== pagy_bootstrap_nav @pagy %>

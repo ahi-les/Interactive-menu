@@ -1,0 +1,24 @@
+<fieldset>
+  <div class="day_menus_dish_fields">
+    <div class="row mb-1">
+    		<%= f.label t('.dish'), class: 'col-1 col-form-label fw-bold' %>
+    		<div class="col-md-auto ">
+    		 <%= f.select :dish_id, Dish.all.map{ |c| [c.name, "#{c.id}"] }, {prompt: t('.select_dish')}, class: 'dish_edited form-select' %>
+    		</div>
+        <div class="col-md-auto d-flex align-items-center">
+          <span class="pricing_description"></span>
+          <span class="last_known_date"></span>
+        </div>
+    		<%= f.label t('.price'), class: 'col-md-auto col-form-label fw-bold' %>
+    		<div class="col-1">
+    		 <%= f.number_field :day_price, required: true, minlength: 1, placeholder: t('.price'), class: 'day_price' %>  
+        </div>
+    	<div class="form-actions col-2">
+        <%= f.hidden_field :_destroy %>
+        <div class="ms-3 btn btn-warning">
+          <%= link_to t('.delete_dish'), '#', class: 'remove_record' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</fieldset>

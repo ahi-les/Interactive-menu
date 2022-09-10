@@ -1,0 +1,16 @@
+<h2><%= t('.title') %></h2>
+
+<p><%= link_to t('.new category'), new_category_path, class: 'btn btn-primary' %></p>
+
+<% @categories.each do |category| %>
+  <article class="card">
+    <div class="card-body">
+    	<h3><%= category.name %></h3>
+
+    	<%= link_to t('.show category'), category_path(category), class: 'btn btn-info' %>
+    	<%= link_to t('.edit category'), edit_category_path(category), class: 'btn btn-secondary' %>
+    	<%= link_to t('.destroy category'), category_path(category), class: 'btn btn-danger', data: {method: :delete, confirm: t('.are you sure?')} %>
+    </div>
+  </article>
+<% end %>
+

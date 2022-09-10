@@ -1,0 +1,19 @@
+
+<h2><%=@day_menu.date%></h2>
+<%= link_to t('.edit_day_menu'),edit_day_menu_path(@day_menu), :target => '_self', class: 'btn btn-primary'%>
+<%@day_menu_grouped_by_categories.keys.each do |day_menu_category|%>
+	<h3><%=day_menu_category%></h3>
+  <article class="card">
+    <div class="card-body">
+  		<%@day_menu_grouped_by_categories[day_menu_category].each do |day_menu|%>
+    		<div>
+    			<span class="fs-5 fw-bold"><%=day_menu.dish.name%></span>
+    			<span><%=day_menu.dish.units%></span>
+    			<span><%=day_menu.dish.measure.name%></span>
+    			<span class="fs-5"><%=day_menu.day_price%> grn</span>
+    			<span><%= t('.pricing_type')%> <%=day_menu.dish.pricing_type.name%></span>
+    		</div>
+	   <%end%>
+    </div>
+  </article>   
+<%end%>

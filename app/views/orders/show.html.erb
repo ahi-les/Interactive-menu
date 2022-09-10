@@ -1,0 +1,31 @@
+
+<h2><%=t('.order on date')%> <%=@order.day_menu.date%></h2>
+<%= link_to t('.edit'),edit_order_path(@order), class: 'btn btn-primary', :target => '_self'%>
+<%@order_grouped_by_categories.keys.each do |order_category|%>
+  <h3><%=order_category%></h3>
+  <article class="card">
+    <div class="card-body">
+  		<%@order_grouped_by_categories[order_category].each do |order_item|%>
+    		<div>
+    			<span class="fs-5 fw-bold"><%=order_item.day_menu_dish.dish.name%></span>
+          <span><%= t('.Weight') %> </span>
+          <% if order_item.day_menu_dish.dish.pricing_type.id == 1 %>
+      			<span><%=order_item.quantity%></span>
+      			<span><%=order_item.day_menu_dish.dish.measure.name%></span>
+          <% else %>
+            <span><%=order_item.day_menu_dish.dish.units%></span>
+            <span><%=order_item.day_menu_dish.dish.measure.name%></span>
+          <% end %>
+          <span> <%=t('.servings')%> </span>
+          <span><%=order_item.number_of_servings%><%=t('.thing')%></span>
+          <span><%= t('.Price') %></span>
+    			<span class="fs-5"><%=order_item.price%> grn</span>
+    			<span><%=t('.pricing_type')%><%=order_item.day_menu_dish.dish.pricing_type.name%></span>
+    		</div>
+	   <%end%>
+    </div>
+  </article>   
+<%end%>
+<div class="fw-bold fs-5 mt-5">
+  <span><%=t('.total price')%><%=@order.total_price%>  grn</span>
+</div>

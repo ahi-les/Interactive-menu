@@ -1,0 +1,50 @@
+<%= render 'shared/errors', object: @dish %>
+
+<%= form_with model: @dish do |f| %>
+	<div class="mb-3 row">
+		<%= f.label t('.name'), class: 'col-sm-1 col-form-label fw-bold' %>
+		<div class="col-sm-5">
+		 <%= f.text_field :name, required: true, minlength: 2, maxlength: 35, placeholder: "Dish", class: 'form-control' %>
+		</div>
+	</div>
+
+	<div class="mb-3 row">
+		<%= f.label t('.units'), class: 'col-sm-1 col-form-label fw-bold' %>
+		<div class="col-sm-5">
+		 <%= f.number_field :units, required: true, minlength: 1, placeholder: t('.units'), class: 'form-control' %>
+		</div>
+	</div>
+
+	<div class="mb-3 row">
+		<%= f.label t('.dish_price'), class: 'col-sm-1 col-form-label fw-bold' %>
+		<div class="col-sm-5">
+		 <%= f.number_field :dish_price, required: true, minlength: 1, placeholder: t('.dish_price'), class: 'form-control' %>
+		</div>
+		<div class="col-sm-1">UAH</div>
+	</div>
+
+	<div class="mb-3 row">
+		<%= f.label t('.measure'), class: 'col-sm-1 col-form-label fw-bold' %>
+		<div class="col-sm-5">
+		 <%= f.select :measure_id, Measure.all.map{ |c| [c.name, "#{c.id}"] }, {}, class: 'form-control' %>
+		</div>
+	</div>
+
+	<div class="mb-3 row">
+		<%= f.label t('.pricing_type'), class: 'col-sm-1 col-form-label fw-bold ps-0' %>
+		<div class="col-sm-5">
+		 <%= f.select :pricing_type_id, PricingType.all.map{ |c| [c.name, "#{c.id}"] }, {}, class: 'form-control' %>
+		</div>
+	</div>
+
+	<div class="mb-3 row">
+		<%= f.label t('.category'), class: 'col-sm-1 col-form-label fw-bold' %>
+		<div class="col-sm-5">
+		 <%= f.select :category_id, Category.all.map{ |c| [c.name, "#{c.id}"] }, {}, class: 'form-control' %>
+		</div>
+	</div>
+
+
+	<%= f.submit t('.sabmit'), class: 'btn btn-success' %>
+<% end %>
+
