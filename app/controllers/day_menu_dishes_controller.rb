@@ -4,7 +4,7 @@ class DayMenuDishesController < ApplicationController
 
   def index
     @day_menu_dishes = DayMenuDish.all
-    @search = SearchParams.new(params || {})
+    @search = DishSearchParams.new(params || {})
     @day_menu_dishes = @search.apply_filters(@day_menu_dishes)
     respond_to do |format|
         format.html

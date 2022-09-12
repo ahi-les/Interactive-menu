@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
 	end
 
 	def index
-		@pagy, @orders = pagy Order.all
+		@pagy, @orders = pagy Order.all.order('created_at')
 	end
 
 	def new

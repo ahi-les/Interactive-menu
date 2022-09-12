@@ -9,7 +9,7 @@
         <span class="col-auto fs-5"><%=t('.daily menu order from')%> </span>
       	<h4 class="col-auto mb-0"><%= order.day_menu.date%></h4>
         <span class="col-auto fs-5"><%=t('.order creation date')%></span>
-        <span class="col-auto mb-0"><%= order.created_at.strftime("%d %b. %Y") %></span>
+        <span class="col-auto mb-0"><%= order.created_at.strftime("%d %b. %Y %H:%M") %></span>
       	<%= link_to t('.more_details'),order_path(order), class: ' m-2 col-auto btn btn-success'%>
       	<%= link_to t('.destroy_order'),order_path(order),data:{method: :delete,confirm:t('.are you sure?')}, class: 'col-auto m-2 btn btn-danger' %>
       </div>
