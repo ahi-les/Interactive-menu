@@ -11,14 +11,14 @@
 	<div class="mb-3 row">
 		<%= f.label t('.units'), class: 'col-sm-1 col-form-label fw-bold' %>
 		<div class="col-sm-5">
-		 <%= f.number_field :units, required: true, minlength: 1, placeholder: t('.units'), class: 'form-control' %>
+		 <%= f.number_field :units, required: true, minlength: 1, min: 1, placeholder: t('.units'), class: 'form-control' %>
 		</div>
 	</div>
 
 	<div class="mb-3 row">
 		<%= f.label t('.dish_price'), class: 'col-sm-1 col-form-label fw-bold' %>
 		<div class="col-sm-5">
-		 <%= f.number_field :dish_price, required: true, minlength: 1, placeholder: t('.dish_price'), class: 'form-control' %>
+		 <%= f.number_field :dish_price, required: true, minlength: 1, min: 1, placeholder: t('.dish_price'), class: 'form-control' %>
 		</div>
 		<div class="col-sm-1">UAH</div>
 	</div>

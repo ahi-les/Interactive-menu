@@ -2,7 +2,7 @@ class DayMenuDish < ApplicationRecord
   belongs_to :day_menu
   belongs_to :dish, optional: true
 
-  validates :day_price, presence: true, length: {minimum: 1}
+  validates :day_price, presence: true, length: {minimum: 1}, numericality: { in: 1..10000 }
   validates :dish_id, presence: true, length: {minimum: 1}
 
   def self.by_dish(dish)

@@ -7,8 +7,8 @@ class Dish < ApplicationRecord
   belongs_to :pricing_type
 
   validates :name, presence: true, length: {minimum: 2}
-  validates :units, presence: true, length: {minimum: 1}
-  validates :dish_price, presence: true, length: {minimum: 1}
+  validates :units, presence: true, length: {minimum: 1}, numericality: { in: 1..10000 }
+  validates :dish_price, presence: true, length: {minimum: 1}, numericality: { in: 0..10000 }
   validates :category_id, presence: true, length: {minimum: 1}
   validates :measure_id, presence: true, length: {minimum: 1}
   validates :pricing_type_id, presence: true, length: {minimum: 1}

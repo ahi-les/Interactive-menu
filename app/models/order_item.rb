@@ -3,9 +3,9 @@ class OrderItem < ApplicationRecord
   belongs_to :day_menu_dish
   after_validation :price
 
-  validates :quantity, presence: true, length: {minimum: 1},numericality: true
-  validates :number_of_servings, presence: true, length: {minimum: 1},numericality: true
-  validates :price, presence: true, length: {minimum: 1},numericality: true
+  validates :quantity, presence: true, length: {minimum: 1},numericality: { in: 0..10000 }
+  validates :number_of_servings, presence: true, length: {minimum: 1},numericality: { in: 0..100 }
+  validates :price, presence: true, length: {minimum: 1},numericality: { in: 0..10000 }
   #validates :order_id, presence: true, length: {minimum: 1},numericality: true
   validates :day_menu_dish_id, presence: true, length: {minimum: 1},numericality: true
   def price 
