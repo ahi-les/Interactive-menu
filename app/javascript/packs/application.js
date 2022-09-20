@@ -6,17 +6,17 @@ import $ from 'jquery'
 window.jQuery = $
 window.$ = $
 
+import './select2/select2'
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import './select2/select2'
 import '@popperjs/core'
 import 'bootstrap/js/dist/dropdown'
 
-require("packs/select2/select2")
 
-require('jquery')
+
+
 
 Rails.start()
 Turbolinks.start()

@@ -13,7 +13,13 @@ const select2_langs = {
 
 /// if you don't have turnbolinks then use this:
 //// document.addEventListener('DOMContentLoaded', () => { 
-window.addEventListener('turbolinks:load', () => {
+
+$(document).on("turbolinks:before-cache", function() {
+    $('.select2-hidden-accessible').select2('destroy');
+   
+});
+
+ $(document).on("turbolinks:load", function() {
   $('.select2').select2({
     tags: true,
     tokenSeparators: [',', ' ']
